@@ -5,12 +5,13 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 const db = require('./utils/database');
-const testDB = require('./utils/test-db');
+// const testDB = require('./utils/test-db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 const cardRouter_80 = require('./routes/card_80');
+const card2Router_80 = require('./routes/card2_80');
 
 var app = express();
 
@@ -28,6 +29,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
 app.use('/card_80', cardRouter_80);
+app.use('/card2_80', card2Router_80);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
