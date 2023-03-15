@@ -7,7 +7,7 @@ const BlogsStaticPage_80 = () => {
         <>
         <section className="blogs">
       <div className="section-title">
-        <h2>{name} {id}</h2>
+        <h2>Fetch Blogs from Static Json -- {name} {id}</h2>
       </div>
       <div className="blogs-center2">
         <article className="blog">
