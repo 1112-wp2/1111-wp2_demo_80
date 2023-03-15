@@ -1,18 +1,37 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
-import blogsData from '../data/blogData2_80';
+// import blogsData from '../data/blogData2_80';
 
-const BlogLocalJsonPage = () => {
+// let api_url = `http://localhost:5000/api/card2_80`;
+
+let api_url = `https://one112-server-cs-info-lab-62wd.onrender.com/api/card2_80`;
+
+const BlogNodeServerPage = () => {
   const [name, setName] = useState('Pocheng Chu');
   const [id, setId] = useState('208410380');
 
-  const [data, setData] = useState(blogsData);
-  console.log('blog data', data);
+  const [data, setData] = useState([]);
+  // console.log('blog data', data);
+
+  const fetchBlogDataFromServer = async () => {
+    try {
+      const results = await axios.get(api_url);
+      console.log('results', results);
+      setData(results.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchBlogDataFromServer();
+  }, []);
   return (
     <>
       <section className='blogs'>
         <div className='section-title'>
-          <h2>Fetch Blogs from Local Json</h2>
+          <h2>Fetch Blogs from Node Server</h2>
           <h3>
             {name} {id}
           </h3>
@@ -39,4 +58,4 @@ const BlogLocalJsonPage = () => {
     </>
   );
 };
-export default BlogLocalJsonPage;
+export default BlogNodeServerPage;
