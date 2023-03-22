@@ -1,2 +1,6 @@
 git config --global user.email "justin40715@gmail.com"
 git config --global user.name "justin40715"
+
+.env
+REACT_APP_SUPABASE_URL=https://wjviuyuwtkixlajqlpbk.supabase.co
+REACT_APP_SUPABASE_ARON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Indqdml1eXV3dGtpeGxhanFscGJrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzY0NTkzMDcsImV4cCI6MTk5MjAzNTMwN30.pIV8FF8Cr3kMLUwG_3KKUZ1wsGipa9oXpwrXCR7Atas
