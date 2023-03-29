@@ -3,8 +3,6 @@ import axios from 'axios';
 
 import Wrapper from '../assets/wrapper/Blogs_80';
 
-import { useDemoContext_80 } from '../context/DemoContext_80';
-
 // import blogsData from '../data/blogData2_80';
 
 // let api_url = `http://localhost:5000/api/card2_80`;
@@ -12,38 +10,36 @@ import { useDemoContext_80 } from '../context/DemoContext_80';
 let api_url = `https://one112-server-cs-info-lab-62wd.onrender.com/api/card2_80`;
 
 const BlogNodeServerPage_80 = () => {
-  // const [name, setName] = useState('Pocheng Chu');
-  // const [id, setId] = useState('208410380');
+  const [name, setName] = useState('Pocheng Chu');
+  const [id, setId] = useState('208410380');
 
-  // const [data, setData] = useState([]);
+  const [data, setData] = useState([]);
   // console.log('blog data', data);
 
-  const {pName, pId, blogs } = useDemoContext_80(); 
+  const fetchBlogDataFromServer = async () => {
+    try {
+      const results = await axios.get(api_url);
+      console.log('results', results);
+      setData(results.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  // const fetchBlogDataFromServer = async () => {
-  //   try {
-  //     const results = await axios.get(api_url);
-  //     console.log('results', results);
-  //     setData(results.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   fetchBlogDataFromServer();
-  // }, []);
+  useEffect(() => {
+    fetchBlogDataFromServer();
+  }, []);
   return (
     <Wrapper>
       <section className='blogs'>
         <div className='section-title'>
           <h2>Fetch Blogs from Node Server</h2>
           <h3>
-            {pName} {pId}
+            {name} {id}
           </h3>
         </div>
         <div className='blogs-center2'>
-          {blogs.map((item) => {
+          {data.map((item) => {
             const { id, img, remote_img, category, title, desc } = item;
             return (
               <article key={id} className='blog'>

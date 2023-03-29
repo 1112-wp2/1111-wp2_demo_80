@@ -2,27 +2,23 @@ import { useState } from 'react';
 
 import blogsData from '../data/blogData2_80';
 import Wrapper from '../assets/wrapper/Blogs_80';
-
-import { useDemoContext_80 } from '../context/DemoContext_80';
 const BlogLocalJsonPage_80 = () => {
-  // const [name, setName] = useState('Pocheng Chu');
-  // const [id, setId] = useState('208410380');
+  const [name, setName] = useState('Pocheng Chu');
+  const [id, setId] = useState('208410380');
 
-  // const [data, setData] = useState(blogsData);
-  // console.log('blog data', data);
-
-  const {pName, pId, blogs } = useDemoContext_80(); 
+  const [data, setData] = useState(blogsData);
+  console.log('blog data', data);
   return (
     <Wrapper>
       <section className='blogs'>
         <div className='section-title'>
           <h2>Fetch Blogs from Local Json</h2>
           <h3>
-            {pName} {pId}
+            {name} {id}
           </h3>
         </div>
         <div className='blogs-center2'>
-          {blogs.map((item) => {
+          {data.map((item) => {
             const { id, img, remote_img, category, title, desc } = item;
             return (
               <article key={id} className='blog'>

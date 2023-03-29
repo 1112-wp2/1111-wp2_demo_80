@@ -1,18 +1,13 @@
 import { useState } from 'react';
 import Wrapper from '../assets/wrapper/Blogs_80';
-
-import { useDemoContext_80 } from '../context/DemoContext_80';
 const BlogsStaticPage_80 = () => {
-    // const [name, setName] = useState('Pocheng Chu');
-    // const [id, setId] = useState('208410380');
-
-    const {pName, pId, blogs } = useDemoContext_80(); 
-
+    const [name, setName] = useState('Pocheng Chu');
+    const [id, setId] = useState('208410380');
     return(
         <Wrapper>
         <section className="blogs">
       <div className="section-title">
-        <h2>Fetch Blogs from Static Json -- {pName} {pId}</h2>
+        <h2>Fetch Blogs from Static Json -- {name} {id}</h2>
       </div>
       <div className="blogs-center2">
         <article className="blog">
