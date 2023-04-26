@@ -2,11 +2,12 @@ const db = require('./database');
 
 const testDB = async () => {
   try {
-    const results = await db.query(`select * from card_xx`);
-    console.log('json data', JSON.stringify(results.rows));
+    const results = await db.query(`select * from menu_80`);
+    console.log('All data', JSON.stringify(results.rows));
   }catch(error){
     console.log(error);
   }
+  
 }
 
 testDB();

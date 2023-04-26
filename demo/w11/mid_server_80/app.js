@@ -10,7 +10,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const db = require('./utils/database');
-// const testDB = require('./utils/test-db');
+const testDB = require('./utils/test-db');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');

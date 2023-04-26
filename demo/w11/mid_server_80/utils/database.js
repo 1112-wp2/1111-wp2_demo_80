@@ -14,16 +14,16 @@ if (process.env.DATABASE === 'SUPABASE') {
     `Connecting SUPABASE PostgreSQL database ${pool.options.database} on port ${pool.options.port}`
   );
 } else {
-  pool = new Pool({
-    user: 'postgres',
-    host: 'localhost',
-    port: '5433',
-    database: 'midterm_80',
-    password: '0000',
-  });
-  console.log(
-    `Connecting local PostgreSQL database ${pool.options.database} on port ${pool.options.port}`
-  );
+  // pool = new Pool({
+  //   user: 'postgres',
+  //   host: 'localhost',
+  //   port: '5433',
+  //   database: 'midterm_80',
+  //   password: '0000',
+  // });
+  // console.log(
+  //   `Connecting local PostgreSQL database ${pool.options.database} on port ${pool.options.port}`
+  // );
 }
 
 module.exports = pool;
