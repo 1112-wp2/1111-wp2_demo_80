@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';  
 import Wrapper from '../../assets/wrapper/mid_80/Menu_80';
 
-let api_url = `https://one112-server-mid-demo-80.onrender.com/api/mid_80/menu_80`;
+let api_url = `http://localhost:5000/api/mid_80/menu_80`;
 const MenuNodeServerPage_80 = () => {
   const [name, setName] = useState('Pocheng Chu');
   const [id, setId] = useState('208410380');
