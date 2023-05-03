@@ -84,19 +84,11 @@ const NavbarMegaResp2_80 = () => {
                     <div className="list-item">
                       <h4 className="title">Cards Demo</h4>
                       <ul>
-                        <li>
-                          <a href="#">Static </a>
-                        </li>
-                        <li>
-                          <a href="#">Local Json</a>
-                        </li>
-                        <li>
-                          <a href="#">Node Server</a>
-                        </li>
-                        <li>
-                          <a href="#">Supabase</a>
-                        </li>
-                      </ul>
+                      <li><Link to='blogs_static_80'>Static</Link></li>
+                      <li><Link to='blogs_localjson_80'>Local Json</Link></li>
+                      <li><Link to='blogs_node_80'>Node Server</Link></li>
+                      <li><Link to='blogs_node_context_80 '>Node + Context</Link></li>
+                    </ul>
                       <h4 className="title">Midterm Exam (w9)</h4>
                       <ul>
                         <li><a href="#">Static</a></li>
