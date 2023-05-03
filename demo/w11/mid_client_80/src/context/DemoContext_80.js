@@ -4,9 +4,9 @@ import axios from 'axios';
 
 import DemoReducer_80 from './DemoReducer_80';
 
-// import { supabase } from '../db/clientSupabse';
+import { supabase } from '../db/clientSupabse';
 
-let api_midprep_url = `http://localhost:5000/api/midprep_xx/overview2_xx`;
+let api_midprep_url = `http://localhost:5000/api/midprep_80/overview2_80`;
 
 let api_midterm_url = `https://one112-server-mid-demo-80.onrender.com/api/mid_80/menu_80`;
 
@@ -17,7 +17,8 @@ const initialState = {
   blogs2: [],
   data1: [],
   data2: [],
-  menu: [],
+  menu: [], // for node server
+  menu2: [], // for supabase
 };
 
 const DemoContext_80 = React.createContext();
@@ -57,21 +58,28 @@ const DemoProvider_80 = ({ children }) => {
     console.log('filter', filter);
     fetchMenuDataFromNodeServer(filter);
   };
-  //   const fetchBlogDataFromSupabase = async () => {
-  //     try {
-  //       let { data, error } = await supabase.from('card_xx').select('*');
+    const fetchMenuDataFromSupabase = async (filter ='') => {
+      try {
+        let filterData;
+        if(filter){
+          let {data, error} = await supabase.from('menu_80').select('*').eq('category', filter);
+          filterData = data;
+        } else {
+          let {data, error} = await supabase.from('menu_80').select('*');
+          filterData = data;
+        }        
+        console.log('data', data);
+        dispatch({ type: 'GET_BLOGS_SUPABASE_SUCCESS', payload: data });
+        //   setData(data);
+      } catch (error) {
+        console.log(error);
+      } 
 
-  //       console.log('data', data);
-  //       dispatch({ type: 'GET_BLOGS_SUPABASE_SUCCESS', payload: data });
-  //       //   setData(data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
+    };
 
-  //   useEffect(() => {
-  //     fetchBlogDataFromSupabase();
-  //   }, []);
+    useEffect(() => {
+      fetchMenuDataFromSupabase();
+    }, []);
 
   return (
     <DemoContext_80.Provider value={{ ...state, changeMenuFilter }}>

@@ -7,7 +7,7 @@ import { useDemoContext_80 } from '../../context/DemoContext_80';
 let api_url = `http://localhost:5000/api/mid_80/menu_80`;
 const MenuNodeServerContextPage_80 = () => {
 
-  const {name, id, menu} = useDemoContext_80();
+  const {name, id, menu, changeMenuFilter} = useDemoContext_80();
   // const [name, setName] = useState('Pocheng Chu');
   // const [id, setId] = useState('208410380');
   // const [data, setData] = useState([]);
@@ -34,17 +34,27 @@ const MenuNodeServerContextPage_80 = () => {
             <div className="underline"></div>
           </div>
           <div className="btn-container">
-            <button type="button" className="filter-btn" data-id="all">all</button>
-            <button type="button" className="filter-btn" data-id="breakfast">
+            <button type="button" className="filter-btn" onClick={()=>(
+              changeMenuFilter('')
+            )} data-id="all">all</button>
+            <button type="button" className="filter-btn" onClick={()=>(
+              changeMenuFilter('breakfast')
+            )} data-id="breakfast">
               breakfast
               </button>
-              <button type="button" className="filter-btn" data-id="lunch">
+              <button type="button" className="filter-btn" onClick={()=>(
+              changeMenuFilter('lunch')
+            )} data-id="lunch">
               lunch
               </button>
-              <button type="button" className="filter-btn" data-id="dessert">
+              <button type="button" className="filter-btn" onClick={()=>(
+              changeMenuFilter('dessert')
+            )} data-id="dessert">
               dessert
               </button>
-              <button type="button" className="filter-btn" data-id="shakes">
+              <button type="button" className="filter-btn" onClick={()=>(
+              changeMenuFilter('shakes')
+            )} data-id="shakes">
               shakes
             </button>
           </div>

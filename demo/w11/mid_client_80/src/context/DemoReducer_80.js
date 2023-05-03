@@ -11,7 +11,7 @@ const DemoReducer_80 = (state, action) => {
     };
   }
 
-  if (action.type === 'GET_MENU_NODE_SUCCESS') {
+  if (action.type === 'GET_MENU_SUPABASE_SUCCESS') {
     return {
       ...state,
       menu: action.payload,
@@ -25,6 +25,8 @@ const DemoReducer_80 = (state, action) => {
       menu_filter: filter,
     };
   }
+
+
 };
 
 export default DemoReducer_80;
