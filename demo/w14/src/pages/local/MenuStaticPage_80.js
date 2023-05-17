@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import './App.css';
+
 
 const MenuStaticPage_80 = () => {
   return (
