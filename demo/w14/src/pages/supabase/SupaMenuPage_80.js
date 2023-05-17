@@ -1,7 +1,16 @@
 import { useState, useEffect } from 'react';
+import { useParams, useNavigate} from 'react-router-dom';
 
 const MenuPage_80 = () => {
   const [products, setProducts] = useState([]);
+  const params = useParams();
+  console.log('params category', params.category);
+
+  const navigate = useNavigate();
+
+  const changeFilter = (filter = '') => {
+    window.location.href=`/supa_menu_80/${filter}`;
+  }
 
   const getMenuData_80 = async() => {
       const response = await fetch(`https://wjviuyuwtkixlajqlpbk.supabase.co/rest/v1/menu_80?select=*`,{
@@ -27,19 +36,19 @@ const MenuPage_80 = () => {
             <div className="underline"></div>
           </div>
           <div className="btn-container">
-            <button type="button" className="filter-btn" data-id="all">
+            <button type="button" className="filter-btn" data-id="all" onClick={()=> changeFilter()}>
               all
             </button>
-            <button type="button" className="filter-btn" data-id="breakfast">
+            <button type="button" className="filter-btn" data-id="breakfast" onClick={()=>  changeFilter('breakfast')}>
               breakfast
               </button>
-              <button type="button" className="filter-btn" data-id="lunch">
+              <button type="button" className="filter-btn" data-id="lunch"  onClick={()=> changeFilter('lunch')}>
               lunch
               </button>
-              <button type="button" className="filter-btn" data-id="dessert">
+              <button type="button" className="filter-btn" data-id="dessert"  onClick={()=> changeFilter('dessert')}>
               dessert
               </button>
-              <button type="button" className="filter-btn" data-id="shakes">
+              <button type="button" className="filter-btn" data-id="shakes"  onClick={()=> changeFilter('shakes')}>
               shakes
             </button>
           </div>
