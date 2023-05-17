@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const App_80 = () => {
+const MenuPage_80 = () => {
   const [products, setProducts] = useState([]);
 
   const getMenuData_80 = async() => {
@@ -23,7 +23,7 @@ const App_80 = () => {
     <section className="menu">
           <div className="title">
           <h2>Menu from Supabase menu table</h2>
-          <h4>PoCheng Chu, 208410380</h4>
+          <h3>PoCheng Chu, 208410380</h3>
             <div className="underline"></div>
           </div>
           <div className="btn-container">
@@ -66,4 +66,4 @@ const App_80 = () => {
   );
 }
 
-export default App_80;
+export default MenuPage_80;
