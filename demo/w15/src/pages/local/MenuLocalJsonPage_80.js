@@ -4,7 +4,7 @@ const base_url = `/api/menu.json`;
 
 let url = `${base_url}`
 
-const MenuNodePage_80 = () => {
+const MenuLocalJsonPage_80 = () => {
   const [products, setProducts] = useState([]);
 
   const changeFilter = (filter) => {
@@ -73,4 +73,4 @@ const MenuNodePage_80 = () => {
   );
 }
 
-export default MenuNodePage_80;
+export default MenuLocalJsonPage_80;
